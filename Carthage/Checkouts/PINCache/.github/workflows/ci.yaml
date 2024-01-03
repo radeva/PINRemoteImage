@@ -13,7 +13,7 @@ on:
 jobs:
   test:
     name: Test
-    runs-on: macOS-latest
+    runs-on: flyci-macos-large-latest-m2
     strategy:
       matrix:
         platform: ['iOS Simulator,name=iPhone 8']
@@ -23,27 +23,27 @@ jobs:
         run: make test
   analyze:
     name: Analyze
-    runs-on: macOS-latest
+    runs-on: flyci-macos-large-latest-m2
     steps:
       - uses: actions/checkout@v2
       - name: analyze
         run: make analyze
   cocoapods:
     name: CocoaPods
-    runs-on: macOS-latest
+    runs-on: flyci-macos-large-latest-m2
     steps:
       - uses: actions/checkout@v2
       - name: Lint
         run: make cocoapods
   carthage:
     name: Carthage
-    runs-on: macOS-latest
+    runs-on: flyci-macos-large-latest-m2
     steps:
       - uses: actions/checkout@v2
       - name: carthage
         run: make carthage
   swift-package-manager:
-    runs-on: macos-latest
+    runs-on: flyci-macos-large-latest-m2
     env:
       DEVELOPER_DIR: /Applications/Xcode_12.app/Contents/Developer
     steps:
